@@ -593,132 +593,94 @@ section {
   background-color: var(--accent-bg);
 }
 
-.timeline-container {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1rem;
+/* New Education Cards Style - Like Experience */
+.education-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
 }
 
-.timeline-container::before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.timeline-item {
-  margin-bottom: 3rem;
-  position: relative;
-}
-
-.timeline-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon-box {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  z-index: 10;
-  box-shadow: var(--box-shadow);
-  font-size: 1.2rem;
-}
-
-.timeline-card {
+.education-card {
   background-color: var(--card-bg);
-  padding: 2rem;
   border-radius: var(--border-radius);
+  overflow: hidden;
   box-shadow: var(--box-shadow-soft);
-  width: calc(50% - 40px);
   transition: var(--transition);
   border: 1px solid var(--border-color);
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.timeline-card::before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: var(--card-bg);
-  transform: rotate(45deg);
-  border: 1px solid var(--border-color);
-  top: 50%;
-  margin-top: -10px;
-  z-index: -1;
-}
-
-.timeline-item:nth-child(odd) .timeline-card::before {
-  right: -10px;
-  border-top: none;
-  border-left: none;
-}
-
-.timeline-item:nth-child(even) .timeline-card::before {
-  left: -10px;
-  border-bottom: none;
-  border-right: none;
-}
-
-.timeline-card:hover {
+.education-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--box-shadow-hover);
 }
 
-.timeline-card h3 {
-  color: var(--primary-color);
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-}
-
-.timeline-card p {
-  margin-bottom: 0.5rem;
-  font-size: 1.05rem;
-}
-
-.date {
-  display: block;
-  margin-top: 0.75rem;
-  color: var(--muted-color);
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.timeline-card {
+.education-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.education-content {
+.education-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  color: white;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.education-title h3 {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.education-title .degree {
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.education-title .duration {
+  color: var(--muted-color);
+  font-size: 0.85rem;
+}
+
+.education-body {
+  padding: 1.5rem;
   flex: 1;
-  min-width: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
-.logo-container {
+.education-body p {
+  margin-top: 1.25rem;
+  color: var(--muted-color);
+  line-height: 1.7;
+}
+
+.college-logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 0.5rem;
 }
 
 .college-logo {
   max-width: 120px;
   height: auto;
-  margin-top: 0.5rem;
   display: block;
   transition: all 0.3s ease;
   border: 3px solid var(--border-color);
@@ -1320,25 +1282,10 @@ section {
     grid-template-columns: 1fr;
   }
   
-  /* Fix timeline for tablet view */
-  .timeline-container::before {
-    left: 60px;
-  }
-  
-  .timeline-card {
-    width: calc(100% - 90px);
-    margin-left: 90px;
-  }
-  
-  .timeline-content {
-    justify-content: flex-start;
-  }
-  
-  .timeline-item:nth-child(even) .timeline-card::before,
-  .timeline-item:nth-child(odd) .timeline-card::before {
-    left: -10px;
-    border-bottom: none;
-    border-right: none;
+  /* Adjust education container for tablet */
+  .education-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
   }
   
   /* Adjust background animations */
@@ -1437,21 +1384,18 @@ section {
     grid-template-columns: 1fr;
   }
   
-  /* Improve education timeline for mobile */
-  .timeline-card {
-    flex-direction: column;
+  /* Adjust education cards for mobile */
+  .education-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
-  .education-content {
-    width: 100%;
-    margin-bottom: 1rem;
+  .education-header {
+    padding: 1.25rem;
   }
   
-  .logo-container {
-    width: 100%;
-    padding-left: 0;
-    border-top: 1px solid var(--border-color);
-    padding-top: 1rem;
+  .college-logo-container {
+    padding: 0.75rem;
   }
   
   .college-logo {
@@ -1516,18 +1460,18 @@ section {
     font-size: 0.85rem;
   }
   
-  /* Fix timeline for mobile */
-  .timeline-card {
-    padding: 1.5rem;
+  /* Improve education section further for small mobile */
+  .education-header {
+    padding: 1rem;
   }
   
-  .timeline-item {
-    margin-bottom: 2rem;
+  .education-body {
+    padding: 1rem;
   }
   
-  .icon-box {
-    width: 50px;
-    height: 50px;
+  .education-icon {
+    width: 40px;
+    height: 40px;
     font-size: 1rem;
   }
   
