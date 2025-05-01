@@ -720,11 +720,18 @@ section {
   height: auto;
   margin-top: 0.5rem;
   display: block;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  border: 3px solid var(--border-color);
+  border-radius: 8px;
+  padding: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .college-logo:hover {
   transform: scale(1.05);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Certifications Section */
@@ -1451,6 +1458,9 @@ section {
     max-width: 100px;
     margin: 0.5rem auto;
     display: block;
+    border-width: 2px;
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
   }
   
   /* Adjust about section */
