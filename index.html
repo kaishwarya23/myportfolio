@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>KA</text></svg>">
+  <link rel="stylesheet" href="modern-styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%236366f1%22>KA</text></svg>">
 </head>
 <body>
   <!-- Header -->
@@ -20,9 +20,9 @@
     <nav class="container">
       <a href="#home" class="logo">KA</a>
       
-      <div class="menu-toggle">
+      <button class="menu-toggle" aria-label="Toggle menu">
         <i class="fas fa-bars"></i>
-      </div>
+      </button>
       
       <ul class="nav-menu">
         <li><a href="#home" class="nav-link">Home</a></li>
@@ -48,7 +48,7 @@
           <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Kothagadi Aishwarya">
         </div>
         <div class="hero-text">
-          <h1><span class="text-primary">Kothagadi</span> <span class="text-secondary">Aishwarya</span></h1>
+          <h1><span class="text-gradient">Kothagadi Aishwarya</span></h1>
           <p class="tagline">Aspiring AI/ML Engineer | Tech Enthusiast | Passionate Learner</p>
           <div class="cta-buttons">
             <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download Resume</a>
@@ -62,7 +62,8 @@
   <!-- About Section -->
   <section id="about" class="about-section">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
+      <span class="section-subtitle">About Me</span>
+      <h2 class="section-title">My Introduction</h2>
       <div class="about-content">
         <p>Hello! I'm Aishwarya, a Computer Science undergrad specializing in Artificial Intelligence and Machine Learning. With a passion for solving real-world problems using emerging technologies, I've pursued multiple certifications and hands-on projects in AI, ML, and software development.</p>
         <p>I believe in continuous learning and innovation, and I'm actively seeking opportunities to grow and contribute in the tech world.</p>
@@ -73,7 +74,8 @@
   <!-- Education Section -->
   <section id="education" class="education-section">
     <div class="container">
-      <h2 class="section-title">Education</h2>
+      <span class="section-subtitle">My Background</span>
+      <h2 class="section-title">Education Journey</h2>
       <div class="timeline-container">
         <div class="timeline-item">
           <div class="timeline-content">
@@ -118,6 +120,7 @@
   <!-- Certifications Section -->
   <section id="certifications" class="certifications-section">
     <div class="container">
+      <span class="section-subtitle">My Achievements</span>
       <h2 class="section-title">Certifications</h2>
       <div class="cert-grid">
         <div class="cert-card">
@@ -181,7 +184,8 @@
   <!-- Projects Section -->
   <section id="projects" class="projects-section">
     <div class="container">
-      <h2 class="section-title">Projects</h2>
+      <span class="section-subtitle">My Research</span>
+      <h2 class="section-title">Recent Projects</h2>
       <div class="projects-grid">
         <div class="project-card">
           <div class="project-header">
@@ -189,7 +193,7 @@
           </div>
           <div class="project-body">
             <h3>Research on Hydroponics System</h3>
-            <p>Investigating sustainable farming with sensor-driven automation.</p>
+            <p>Investigating sustainable farming with sensor-driven automation and IoT integration for efficient resource utilization and increased crop yield.</p>
             <div class="project-tags">
               <span class="tag">Research</span>
               <span class="tag">IoT</span>
@@ -203,7 +207,7 @@
           </div>
           <div class="project-body">
             <h3>Evaluation of ML Algorithms on LULC</h3>
-            <p>Comparative study on land classification models using remote sensing data.</p>
+            <p>Comparative study on land classification models using remote sensing data, focusing on optimizing algorithms for accurate land use and land cover mapping.</p>
             <div class="project-tags">
               <span class="tag">Machine Learning</span>
               <span class="tag">Remote Sensing</span>
@@ -218,6 +222,7 @@
   <!-- Contact Section -->
   <section id="contact" class="contact-section">
     <div class="container">
+      <span class="section-subtitle">Reach Out</span>
       <h2 class="section-title">Get In Touch</h2>
       <div class="contact-container">
         <div class="contact-form">
@@ -226,15 +231,15 @@
           <form id="contact-form">
             <div class="form-group">
               <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" required>
+              <input type="text" id="name" name="name" placeholder="Enter your name" required>
             </div>
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
+              <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-full">Send Message</button>
           </form>
