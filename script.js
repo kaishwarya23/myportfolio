@@ -173,11 +173,37 @@ function init() {
   animateOnScroll();
   createParticles();
   
-  // Add event listeners
+  // Add event listeners with improved mobile support
   document.querySelector('.menu-toggle').addEventListener('click', toggleMobileMenu);
+  
+  // Close menu when a link is clicked
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', closeMobileMenu);
   });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const navMenu = document.querySelector('.nav-menu');
+    const menuToggle = document.querySelector('.menu-toggle');
+    
+    if (navMenu.classList.contains('active') && 
+        !navMenu.contains(e.target) && 
+        !menuToggle.contains(e.target)) {
+      closeMobileMenu();
+    }
+  });
+  
+  // Handle touch events for mobile
+  document.addEventListener('touchstart', (e) => {
+    const navMenu = document.querySelector('.nav-menu');
+    const menuToggle = document.querySelector('.menu-toggle');
+    
+    if (navMenu.classList.contains('active') && 
+        !navMenu.contains(e.target) && 
+        !menuToggle.contains(e.target)) {
+      closeMobileMenu();
+    }
+  }, {passive: true});
   document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
   document.getElementById('back-to-top').addEventListener('click', scrollToTop);
   document.getElementById('contact-form').addEventListener('submit', handleFormSubmit);

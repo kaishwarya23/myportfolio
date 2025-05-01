@@ -695,11 +695,36 @@ section {
   font-weight: 500;
 }
 
+.timeline-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.education-content {
+  flex: 1;
+  min-width: 200px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+}
+
 .college-logo {
   max-width: 120px;
   height: auto;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: block;
+  transition: transform 0.3s ease;
+}
+
+.college-logo:hover {
+  transform: scale(1.05);
 }
 
 /* Certifications Section */
@@ -784,7 +809,7 @@ section {
 /* Projects Section */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2.5rem;
 }
 
@@ -1288,6 +1313,7 @@ section {
     grid-template-columns: 1fr;
   }
   
+  /* Fix timeline for tablet view */
   .timeline-container::before {
     left: 60px;
   }
@@ -1301,22 +1327,46 @@ section {
     justify-content: flex-start;
   }
   
-  .timeline-item:nth-child(even) .timeline-card::before {
+  .timeline-item:nth-child(even) .timeline-card::before,
+  .timeline-item:nth-child(odd) .timeline-card::before {
     left: -10px;
     border-bottom: none;
     border-right: none;
   }
   
-  .timeline-item:nth-child(odd) .timeline-card::before {
-    left: -10px;
-    border-bottom: none;
-    border-right: none;
+  /* Adjust background animations */
+  .bg-animation {
+    opacity: 0.3;
+  }
+  
+  .bg-animation-1 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .bg-animation-2 {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .bg-animation-3 {
+    width: 150px;
+    height: 150px;
+  }
+  
+  /* Adjust shapes for tablet */
+  .shape {
+    opacity: 0.15;
   }
 }
 
 @media (max-width: 768px) {  
   section {
     padding: 4rem 0;
+  }
+  
+  .hero-section {
+    padding: 8rem 0 4rem;
   }
   
   .hero-content {
@@ -1331,12 +1381,15 @@ section {
   
   .hero-image {
     margin: 0 auto;
+    width: 220px;
+    height: 220px;
   }
   
   .cta-buttons {
     justify-content: center;
   }
   
+  /* Fix mobile menu */
   .menu-toggle {
     display: flex;
   }
@@ -1372,14 +1425,71 @@ section {
     font-size: 1.2rem;
   }
   
+  /* Single column layouts for mobile */
   .cert-grid, .projects-grid, .experience-container {
     grid-template-columns: 1fr;
+  }
+  
+  /* Improve education timeline for mobile */
+  .timeline-card {
+    flex-direction: column;
+  }
+  
+  .education-content {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .logo-container {
+    width: 100%;
+    padding-left: 0;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+  }
+  
+  .college-logo {
+    max-width: 100px;
+    margin: 0.5rem auto;
+    display: block;
+  }
+  
+  /* Adjust about section */
+  .about-content {
+    padding: 2rem;
+  }
+  
+  /* Adjust background animations */
+  .bg-animation {
+    opacity: 0.2;
+    filter: blur(50px);
+  }
+  
+  /* Reduce particle count on mobile */
+  .shape:nth-child(odd) {
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
+  section {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+  
   .hero-text h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .typing-text::after {
+    height: 80%;
+  }
+  
+  .tagline {
+    font-size: 1rem;
   }
   
   .cta-buttons {
@@ -1389,5 +1499,81 @@ section {
   
   .section-title {
     font-size: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  /* Fix timeline for mobile */
+  .timeline-card {
+    padding: 1.5rem;
+  }
+  
+  .timeline-item {
+    margin-bottom: 2rem;
+  }
+  
+  .icon-box {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+  
+  /* Fix forms on mobile */
+  .contact-form, .contact-info {
+    padding: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  /* Reduce size of project cards */
+  .project-header {
+    height: 150px;
+    font-size: 2.5rem;
+  }
+  
+  .project-body {
+    padding: 1.5rem;
+  }
+  
+  /* Improve experience cards */
+  .experience-header {
+    padding: 1.25rem;
+  }
+  
+  .experience-body {
+    padding: 1.25rem;
+  }
+  
+  .experience-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Reduce animation opacity on mobile */
+  .bg-animation {
+    opacity: 0.15;
+  }
+  
+  /* Hide some shapes on small mobiles */
+  .shape-3 {
+    display: none;
+  }
+  
+  /* Footer adjustments */
+  .footer-links {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Adjust back to top button */
+  .back-to-top {
+    right: 20px;
+    width: 40px;
+    height: 40px;
   }
 }
